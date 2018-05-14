@@ -13,7 +13,7 @@ const cors = (req, res, next) => {
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization')
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')//, DELETE, HEAD, PUT, PATCH')
   if (req.method === 'OPTIONS') {
-    res.send(200)
+    res.sendStatus(200)
   }
   else
     next()
