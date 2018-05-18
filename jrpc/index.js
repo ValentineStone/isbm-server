@@ -8,10 +8,12 @@ const accessTokenFromJwt = jwt => jsonwebtoken.verify(jwt, 'pinkiepie').jti
 
 const calc = require('./calc.js')
 const cypher = require('./cypher.js')
+const sendMail = require('./endpoint/sendMail.js')
 
 const endpoint = {
   calc,
-  cypher
+  cypher,
+  sendMail
 }
 
 endpoint.echoAuth = env => env.req.auth || 'No auth data present'

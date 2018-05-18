@@ -1,5 +1,5 @@
 const neo4j = require('neo4j-driver').v1
-const db = neo4j.driver('bolt://localhost:7687', neo4j.auth.basic('neo4j', 'Neo4j170310'))
+const db = neo4j.driver('bolt://127.0.0.1:7687', neo4j.auth.basic('neo4j', 'Neo4j170310'))
 
 const jrpc = require('./jrpc')
 

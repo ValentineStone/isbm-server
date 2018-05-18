@@ -1,1 +1,2 @@
-@nodemon -- --experimental-vm-modules --experimental-modules index.js
+@rem -- --experimental-vm-modules --experimental-modules 
+@nodemon index.js

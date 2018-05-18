@@ -4,10 +4,6 @@ const handleRequest = require('./handleRequest.js')
 
 const app = express()
 
-// Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJwaW5raWVwaWUifQ.amzMkJr5uFJCRsI7FcaII0N4XV_iAceDPLF2OwOFx-U
-// Content-Type:  application/json
-// ["cypher", "MATCH (n:User {username: $username}) RETURN labels(n)[0] AS label", {"username": "admin"}]
-
 const cors = (req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*')
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization')
