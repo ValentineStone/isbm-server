@@ -86,7 +86,6 @@ module.exports = async (name, args, env) => {
       if (user)
         env.user = user
     }
-    console.log('env.user', env.user)
 
     return endpoint[name](...args, env)
   }
