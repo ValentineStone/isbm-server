@@ -4,8 +4,7 @@ module.exports = async function logOutUser(userCredentials) {
 
   await this.db.run(
     `MATCH (token:AccessToken { id: $id }) DETACH DELETE token`,
-    { id: env.req.auth.jti },
-    env
+    { id: this.req.auth.jti }
   )
 
   return 'success'

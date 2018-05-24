@@ -23,7 +23,7 @@ const jsonrpApply =
 
 const identifyUser = env => {
   if (env.req.auth) {
-    env.db.run(
+    return env.db.run(
       `MATCH (token:AccessToken { id: $id })-[:GRANTS_ACCESS]->(user:User)
       RETURN properties(user) as user`,
       { id: env.req.auth.jti }
