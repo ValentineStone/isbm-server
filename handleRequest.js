@@ -4,10 +4,16 @@ const db = neo4j.driver('bolt://127.0.0.1:7687', neo4j.auth.basic('neo4j', 'Neo4
 const isValidJSONRPCRequest =
   json => typeof json === 'object' && json && json.jsonrpc === '2.0'
 
-db.run = (statement, parameters) => {
+db.query = (statement, parameters) => {
   const session = db.session()
   return session.run(statement, parameters)
-    .then(v => Object.assign({}, ...v.records.map(r => r.toObject())))
+    .then(v => v.records.map(r => r.toObject()))
+    .finally(() => session.close())
+}
+db.querySingle = (statement, parameters) => {
+  const session = db.session()
+  return session.run(statement, parameters)
+    .then(v => v.records[0] ? v.records[0].toObject() : null)
     .finally(() => session.close())
 }
 
@@ -23,7 +29,7 @@ const jsonrpApply =
 
 const identifyUser = env => {
   if (env.req.auth) {
-    return env.db.run(
+    return env.db.querySingle(
       `MATCH (token:AccessToken { id: $id })-[:GRANTS_ACCESS]->(user:User)
       RETURN properties(user) as user`,
       { id: env.req.auth.jti }

@@ -1,2 +1,1 @@
-@rem -- --experimental-vm-modules --experimental-modules 
-@nodemon index.js
+@npm run start
