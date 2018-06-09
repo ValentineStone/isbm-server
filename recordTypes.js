@@ -1,4 +1,7 @@
 module.exports = [
   'Client',
-  'User'
+  'User',
+  'Material',
+  'Order',
+  'Task'
 ]
