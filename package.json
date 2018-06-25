@@ -13,10 +13,10 @@
     "express": "^4.16.3",
     "express-jwt": "^5.3.1",
     "glob": "^7.1.2",
-    "jsonwebtoken": "^8.2.1",
+    "jsonwebtoken": "^8.3.0",
     "lodash": "^4.17.10",
     "neo4j-driver": "^1.6.1",
-    "nodemailer": "^4.6.5",
+    "nodemailer": "^4.6.7",
     "nodemon": "^1.17.5"
   }
 }

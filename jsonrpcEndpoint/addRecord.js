@@ -1,7 +1,7 @@
 const recordTypes = require('../recordTypes')
 const pickProps = require('lodash/pick')
 
-module.exports = function getRecord({ id, type }) {
+module.exports = function setRecord(type) {
   if (!this.user)
     throw new Error('No user session present')
 
@@ -9,7 +9,11 @@ module.exports = function getRecord({ id, type }) {
     throw new Error('Unknown record type: ' + type)
 
   return this.db.querySingle(
-    `MATCH (record { id: $id }) RETURN record {.*}`,
-    { id }
-  ).then(v => v && v.record)
+    `CREATE (record:${type} {
+        id: apoc.create.uuid(),
+        timeCreated: $timeCreated,
+        timeEdited: $timeCreated
+    }) RETURN record {.*}`,
+    {timeCreated: Date.now()}
+  ).then(v => v.record)
 }

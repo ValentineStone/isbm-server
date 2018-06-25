@@ -1,5 +1,5 @@
 module.exports = [
-  'Client',
+  'Individual',
   'User',
   'Material',
   'Order',
