@@ -4,7 +4,8 @@
   "description": "ISBM Server App",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -- --experimental-vm-modules --experimental-modules index.js"
+    "start": "nodemon -- --experimental-vm-modules --experimental-modules index.js",
+    "install-printer": "npm install --save printer --target_arch=x64"
   },
   "keywords": [],
   "author": "Leonid Romanovsky <sirLeonidRomanovsky@gmail.com>",
@@ -17,6 +18,7 @@
     "lodash": "^4.17.10",
     "neo4j-driver": "^1.6.1",
     "nodemailer": "^4.6.7",
-    "nodemon": "^1.17.5"
+    "nodemon": "^1.17.5",
+    "printer": "^0.2.2"
   }
 }
